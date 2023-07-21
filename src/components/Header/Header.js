@@ -1,29 +1,27 @@
 import Pdf from "../../documents/DhuraMistry_Resume.pdf";
+import { HashLink} from "react-router-hash-link";
 
 const Header = () => {
   const links = [
-    { title: "About", path: "/" },
-    { title: "Skills", path: "/Skills" },
-    { title: "Work", path: "/Work" },
-    { title: "Contact", path: "/Contact" },
+    { title: "About", path: "#about" },
+    { title: "Skills", path: "#skills" },
+    { title: "Work", path: "#work" },
+    { title: "Contact", path: "#contact" },
   ];
 
   const displaylinks = links.map((link) => {
     return (
-      <li className="p-2">
-        <a href={link.path}>{link.title}</a>
-      </li>
+      <HashLink to={link.path}>{link.title}</HashLink>
     );
   });
 
   return (
-    <div class="flex bg-gray-900 text-slate-50">
+    <div class="flex justify-between bg-gray-900 text-slate-50 p-8">
       <span class="text-2xl font-bold">Dhura Mistry</span>
-      <ul className="list-none flex justify-center gap-4">
+      <ul className="list-none flex justify-center gap-4 font-bold">
         {displaylinks}
         <li className="p-2">
-          <a href={Pdf} target="_blank">
-            Resume
+          <a className="bg-white p-2 rounded text-slate-900" href={Pdf} target="_blank">Resume
           </a>
         </li>
       </ul>

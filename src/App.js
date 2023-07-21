@@ -5,38 +5,28 @@ import About from "./components/About/About";
 import Skills from "./components/Skills/Skills";
 import Work from "./components/Work/Work";
 import Contact from "./components/Contact/Contact";
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import Pdf from "./documents/DhuraMistry_Resume.pdf";
+import { HashLink } from "react-router-hash-link";
+import {
+  BrowserRouter,
+} from "react-router-dom";
 
-const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <Home/>,
-  // },
-  {
-    path: "/",
-    element: <About/>,
-  },
-  {
-    path: "/skills",
-    element: <Skills/>,
-  },
-  {
-    path: "/work",
-    element: <Work/>,
-  },
-  {
-    path: "/contact",
-    element: <Contact/>,
-  },
-]);
+
 
 const App = () => {
+
   return (
-    <div className="App">
-      <Header />
-      <RouterProvider router={router} />
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <About/>
+        <Skills />
+        <Work />
+        <Contact />
+        {/* <RouterProvider router={router} /> */}
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 
