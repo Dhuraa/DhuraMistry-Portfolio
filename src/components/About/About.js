@@ -2,7 +2,7 @@ import AboutImage from '../../assets/about_image.png'
 
 const About = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white p-10">
       <section className="flex p-10 ">
         <div>
           <img src={AboutImage}></img>
