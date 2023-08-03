@@ -12,12 +12,20 @@ const Header = () => {
     return <HashLink class="py-4 px-2 text-gray-500 font-semibold hover:text-white-500 transition duration-300" to={link.path}>{link.title}</HashLink>;
   });
 
+  const mobilelinks = links.map((link) => {
+    return <HashLink class="block text-sm px-2 py-4 hover:bg-white-500 transition duration-300" to={link.path}>{link.title}</HashLink>;
+  });
+
   const btn = document.querySelector("button.mobile-menu-button");
   const menu = document.querySelector(".mobile-menu");
 
   // btn.addEventListener("click", () => {
   //   menu.classList.toggle("hidden");
   // });
+
+  const openMenu = () => {
+    menu.classList.toggle("hidden");
+  }
 
   return (
     <div>
@@ -40,7 +48,7 @@ const Header = () => {
 						<a class="py-2 px-2 font-medium text-gray-500 rounded bg-white text-slate-900 hover:text-white transition duration-300" href={Pdf} target="_blank">Resume</a>
 					</div>
 					<div class="md:hidden flex items-center">
-						<button class="outline-none mobile-menu-button">
+						<button class="outline-none mobile-menu-button" onClick={openMenu}>
 						<svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
 							x-show="!showMenu"
 							fill="none"
@@ -58,10 +66,8 @@ const Header = () => {
 			</div>
 			<div class="hidden mobile-menu">
 				<ul class="">
-					<li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Home</a></li>
-					<li><a href="#services" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Services</a></li>
-					<li><a href="#about" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</a></li>
-					<li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact Us</a></li>
+					{mobilelinks}
+          <li><a href={Pdf} target="_blank" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300" >Resume</a></li>
 				</ul>
 			</div>
 		</nav>
